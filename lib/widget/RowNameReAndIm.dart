@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 
 class RowNameReAndIm extends StatelessWidget {
-  const RowNameReAndIm({
-    super.key, required this.name, required this.title, required this.ps,
+  const   RowNameReAndIm({
+    super.key, required this.name, required this.title, required this.ps, required this.image,
   });
   final String name;
   final String title;
   final String ps;
+  final String image;
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +36,7 @@ class RowNameReAndIm extends StatelessWidget {
           height: 110,
           width: 100,
           child: Image.asset(
-            "images/ibrahim.jpg",
+            image,
             fit: BoxFit.fill,
           ),
         ),

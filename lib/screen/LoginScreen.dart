@@ -77,7 +77,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                     color: Color(ValueColor.CERULEAN),
                                     colorsEB: Color(ValueColor.CERULEAN),
                                     colorsFB: Color(ValueColor.CERULEAN),
-                                    typeText: TextInputType.emailAddress,
+                                    typeText: TextInputType.phone,
                                   ),
                                   SizedBox(
                                     height: 25,

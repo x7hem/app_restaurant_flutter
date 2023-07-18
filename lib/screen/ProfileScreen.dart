@@ -1,4 +1,5 @@
 import 'package:app_restaurant_flutter/value/ValueColor.dart';
+import 'package:app_restaurant_flutter/widget/ButtonResta.dart';
 import 'package:app_restaurant_flutter/widget/RowMore.dart';
 import 'package:flutter/material.dart';
 
@@ -144,7 +145,36 @@ class ProfileScreen extends StatelessWidget {
                   child: TextButton(
                     // onPressed: () => _signOut(),
                     onPressed: () {
-                      Navigator.of(context).pushReplacementNamed('/LoginScreen');
+                      //
+                      showDialog(context: context,
+                          builder: (context)=>SimpleDialog(
+                            title: const Text("تسجيل خروج",
+                              style: TextStyle(
+                                  fontSize: 17, color: Colors.blue,fontFamily: 'CAREEM'),
+
+                            ),
+
+                            contentPadding: const EdgeInsets.all(20),
+                            children: [
+                              const Text("هل انت متاكد ؟",
+                            style: TextStyle(
+                                fontSize: 15, color: Colors.black,fontFamily: 'CAREEM'),),
+                              SizedBox(height: 20,),
+                              Row(
+                                children: [
+                                  ButtonResta(text: "نعم",onPressed: (){
+                                    Navigator.of(context).pushReplacementNamed('/LoginScreen');
+                                  },color: Colors.red,color2: Colors.red),
+                                  Spacer(),
+                                  ButtonResta(text: "لا",onPressed: (){
+                                    Navigator.of(context).pop();
+                                  },color: Colors.blue,color2: Colors.blue),
+                                ],
+                              ),
+
+                            ],
+
+                          ));
                     },
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,

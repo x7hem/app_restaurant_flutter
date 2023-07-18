@@ -28,6 +28,7 @@ class EditText extends StatelessWidget {
         // prefixIcon : Icon(Icons.remove_red_eye,color: Colors.black26),
         // labelText: text,
         label: Text(text),
+
         labelStyle: TextStyle(
 
           color: color,
