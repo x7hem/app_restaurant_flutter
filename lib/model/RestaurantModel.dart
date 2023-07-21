@@ -1,4 +1,6 @@
 
+import 'package:flutter/material.dart';
+
 class RestaurantModel{
 
   String _name;

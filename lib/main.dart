@@ -2,6 +2,7 @@ import 'package:app_restaurant_flutter/screen/ControlScreen.dart';
 import 'package:app_restaurant_flutter/screen/HomeScreen.dart';
 import 'package:app_restaurant_flutter/screen/LoginScreen.dart';
 import 'package:app_restaurant_flutter/screen/RegisterScreen.dart';
+import 'package:app_restaurant_flutter/screen/RestaurantSinglScreen.dart';
 import 'package:app_restaurant_flutter/screen/SplashScreen.dart';
 import 'package:app_restaurant_flutter/screen/welcomeScreen.dart';
 import 'package:flutter/material.dart';
@@ -43,9 +44,7 @@ class MyApp extends StatelessWidget {
           '/LoginScreen':(context)=>LoginScreen(),
           '/RegisterScreen':(context)=>RegisterScreen(),
           '/ControlScreen':(context)=>ControlScreen(),
-
-
-
+          '/RestaurantSinglScreen':(context)=>RestaurantSinglScreen(),
 
         }
     );

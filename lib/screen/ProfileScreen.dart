@@ -143,7 +143,6 @@ class ProfileScreen extends StatelessWidget {
                   color: Colors.white,
                   height: 60,
                   child: TextButton(
-                    // onPressed: () => _signOut(),
                     onPressed: () {
                       //
                       showDialog(context: context,
