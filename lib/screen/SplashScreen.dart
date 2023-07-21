@@ -1,3 +1,4 @@
+import 'package:app_restaurant_flutter/prefs/shared_pref_controller.dart';
 import 'package:app_restaurant_flutter/value/ValueColor.dart';
 import 'package:flutter/material.dart';
 
@@ -25,9 +26,20 @@ class _SplashScreenState extends State<SplashScreen> {
 
     return true;
   }
+  bool isLoggedIn = false;
 
   void _navigateToHome() {
-    Navigator.of(context).pushReplacementNamed('/WelcomeScreen');
+    MySharedPreferences.instance
+        .getBooleanValue('login')
+        .then((value) => setState(() {
+      isLoggedIn = value;
+      if (!isLoggedIn) {
+        Navigator.of(context).pushReplacementNamed('/WelcomeScreen');
+      }else{
+        Navigator.of(context).pushReplacementNamed('/ControlScreen');
+      }
+    }));
+
   }
   @override
   Widget build(BuildContext context) {

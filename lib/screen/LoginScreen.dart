@@ -1,3 +1,4 @@
+import 'package:app_restaurant_flutter/prefs/shared_pref_controller.dart';
 import 'package:app_restaurant_flutter/screen/RegisterScreen.dart';
 import 'package:app_restaurant_flutter/value/ValueColor.dart';
 import 'package:app_restaurant_flutter/widget/ButtonLogin.dart';
@@ -12,7 +13,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  late TextEditingController _emailTextController;
+  late TextEditingController _phoneTextController;
 
   late TextEditingController _passwordTextController;
 
@@ -20,19 +21,21 @@ class _LoginScreenState extends State<LoginScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    _emailTextController = TextEditingController();
+    _phoneTextController = TextEditingController();
     _passwordTextController = TextEditingController();
   }
 
   @override
   void dispose() {
     // TODO: implement dispose
-    _emailTextController.dispose();
+    _phoneTextController.dispose();
     _passwordTextController.dispose();
     super.dispose();
   }
 
-  String? _email;
+  String? _phone;
+  String? isPhone;
+  String? isPassword;
 
   String? _password;
 
@@ -73,7 +76,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   EditText(
 
                                         "الهاتف",
-                                    controller: _emailTextController,
+                                    controller: _phoneTextController,
                                     color: Color(ValueColor.CERULEAN),
                                     colorsEB: Color(ValueColor.CERULEAN),
                                     colorsFB: Color(ValueColor.CERULEAN),
@@ -197,9 +200,9 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   bool _checkData() {
-    _email = _emailTextController.text;
-    _password = _emailTextController.text;
-    if (_email!.isEmpty && _password!.isEmpty) {
+    _phone = _phoneTextController.text;
+    _password = _passwordTextController.text;
+    if (_phone!.isEmpty && _password!.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text( "الرجاء قم بدخال البيانات !"),
@@ -212,13 +215,50 @@ class _LoginScreenState extends State<LoginScreen> {
       );
       return false;
     } else {
-      Navigator.of(context).pushReplacementNamed('/ControlScreen');
-      // var getEmail = _emailTextController.text;
-      // MySharedPreferences.instance
-      //     .setStringValue("email", getEmail);
-      // MySharedPreferences.instance
-      //     .setBooleanValue("login", true);
+      MySharedPreferences.instance
+          .getStringValue('phone')
+          .then((String) => setState(() {
+        isPhone = String;
+        MySharedPreferences.instance
+            .getStringValue('password')
+            .then((Value) => setState(() {
+          isPassword = Value;
+      if(isPhone==_phone){
+        if(isPassword==_password){
+          Navigator.of(context).pushReplacementNamed('/ControlScreen');
+          MySharedPreferences.instance
+              .setBooleanValue("login", true);
+
+        }else{
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text( "كلمة السر غير صحيح  !"),
+              backgroundColor: Colors.red,
+              duration: Duration(seconds: 3),
+              behavior: SnackBarBehavior.floating,
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10),
+              ),
+            ),
+          );
+        }
+      }else{
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text( "رقم الهاتف غير صحيح  !"),
+            backgroundColor: Colors.red,
+            duration: Duration(seconds: 3),
+            behavior: SnackBarBehavior.floating,
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10),
+            ),
+          ),
+        );
+      }
+      }));
+      }));
+
       return true;
+
+
     }
   }
 }

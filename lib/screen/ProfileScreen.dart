@@ -1,3 +1,4 @@
+import 'package:app_restaurant_flutter/prefs/shared_pref_controller.dart';
 import 'package:app_restaurant_flutter/value/ValueColor.dart';
 import 'package:app_restaurant_flutter/widget/ButtonResta.dart';
 import 'package:app_restaurant_flutter/widget/RowMore.dart';
@@ -163,6 +164,8 @@ class ProfileScreen extends StatelessWidget {
                                 children: [
                                   ButtonResta(text: "نعم",onPressed: (){
                                     Navigator.of(context).pushReplacementNamed('/LoginScreen');
+                                    MySharedPreferences.instance
+                                        .setBooleanValue("login", false);
                                   },color: Colors.red,color2: Colors.red),
                                   Spacer(),
                                   ButtonResta(text: "لا",onPressed: (){

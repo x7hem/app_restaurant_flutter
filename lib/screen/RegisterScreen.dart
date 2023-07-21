@@ -1,3 +1,4 @@
+import 'package:app_restaurant_flutter/prefs/shared_pref_controller.dart';
 import 'package:app_restaurant_flutter/screen/LoginScreen.dart';
 import 'package:app_restaurant_flutter/value/ValueColor.dart';
 import 'package:app_restaurant_flutter/widget/ButtonLogin.dart';
@@ -13,7 +14,6 @@ class RegisterScreen extends StatefulWidget {
 
 class _RegisterScreenState extends State<RegisterScreen> {
   late TextEditingController _nameTextController;
-
   late TextEditingController _passwordTextController;
   late TextEditingController _phoneTextController;
 
@@ -35,8 +35,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
     _phoneTextController.dispose();
     super.dispose();
   }
-  String? _email;
-
+  String? _phone;
+  String? _name;
   String? _password;
   @override
   Widget build(BuildContext context) {
@@ -175,12 +175,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
   }
 
   bool _checkData() {
-    _email = _nameTextController.text;
-    _password = _nameTextController.text;
-    if (_email!.isEmpty && _password!.isEmpty) {
+    _phone = _phoneTextController.text;
+    _password = _passwordTextController.text;
+    _name = _nameTextController.text;
+    if (_phone!.isEmpty && _password!.isEmpty&& _name!.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text( "Please enter your details !!"),
+          content: Text( "الرجاء قم بدخال البيانات !"),
           backgroundColor: Colors.red,
           duration: Duration(seconds: 3),
           behavior: SnackBarBehavior.floating,
@@ -190,12 +191,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
       );
       return false;
     } else {
-      Navigator.of(context).pushReplacementNamed('/ControlScreen');
-      // var getEmail = _emailTextController.text;
-      // MySharedPreferences.instance
-      //     .setStringValue("email", getEmail);
-      // MySharedPreferences.instance
-      //     .setBooleanValue("login", true);
+      Navigator.of(context).pushReplacementNamed('/LoginScreen');
+      var getPhone = _phoneTextController.text;
+      var getPassword = _passwordTextController.text;
+      MySharedPreferences.instance
+          .setStringValue("phone", getPhone);
+      MySharedPreferences.instance
+          .setStringValue("password", getPassword);
       return true;
     }
   }
