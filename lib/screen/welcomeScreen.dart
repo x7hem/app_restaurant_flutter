@@ -69,35 +69,40 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   pages: [
 
                     PageViewModel(
-                      title: '',
+                      title: 'يلا نعرف اقرب مطعم',
                       body:
-                          'يلا نعرف اقرب مطعم',
+                          'يمكن عبر تطبيقنا معرفة عنوان المطعم',
                       image: _buildImage(
                           "Directions_pana.png"),
                       decoration: pageDecoration.copyWith(
+                        titleTextStyle:TextStyle(color: Color(ValueColor.ARANG), fontSize: 25,fontFamily: 'CAREEM') ,
+
                         bodyTextStyle:
-                        TextStyle(color: Color(ValueColor.ARANG), fontSize: 25,fontFamily: 'CAREEM'),
+                        TextStyle(color: Color(ValueColor.CERULEAN), fontSize: 25,fontFamily: 'CAREEM'),
                       ),
                     ),
                     PageViewModel(
-                      title: '',
+                      title: 'يلا نعرف الذ مطعم',
                       body:
-                          'يلا نعرف الذ مطعم',
+                          'يمكن عبر تطبيقنا معرفة تجربة الزبائن',
                       image: _buildImage('Eating_together_amico.png'),
                       decoration: pageDecoration.copyWith(
+                        titleTextStyle:TextStyle(color: Color(ValueColor.ARANG), fontSize: 25,fontFamily: 'CAREEM') ,
+
                         bodyTextStyle:
-                        TextStyle(color: Color(ValueColor.ARANG), fontSize: 25,fontFamily: 'CAREEM'),
+                        TextStyle(color: Color(ValueColor.CERULEAN), fontSize: 25,fontFamily: 'CAREEM'),
                       ),
                     ),
                     PageViewModel(
-                      title: '',
+                      title: 'وبدك تعرف تقيم المطعم',
                       body:
-                          'وبدك تعرف تقيم المطعم',
+                          'يمكن عبر تطبيقنا معرفة تقيم المطعم',
                       image: _buildImage(
                           "Choose_pana.png"),
                       decoration: pageDecoration.copyWith(
+                        titleTextStyle:TextStyle(color: Color(ValueColor.ARANG), fontSize: 25,fontFamily: 'CAREEM') ,
                         bodyTextStyle:
-                        TextStyle(color: Color(ValueColor.ARANG), fontSize: 25,fontFamily: 'CAREEM'),
+                        TextStyle(color: Color(ValueColor.CERULEAN), fontSize: 25,fontFamily: 'CAREEM'),
                       ),
                     ),
                   ],

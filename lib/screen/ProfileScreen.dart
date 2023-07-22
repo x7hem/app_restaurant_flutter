@@ -1,5 +1,6 @@
 import 'package:app_restaurant_flutter/prefs/shared_pref_controller.dart';
 import 'package:app_restaurant_flutter/value/ValueColor.dart';
+import 'package:app_restaurant_flutter/widget/ButtonBialog.dart';
 import 'package:app_restaurant_flutter/widget/ButtonResta.dart';
 import 'package:app_restaurant_flutter/widget/RowMore.dart';
 import 'package:flutter/material.dart';
@@ -28,7 +29,6 @@ class ProfileScreen extends StatelessWidget {
                   ),
                 ),
               ),
-
               Positioned(
                 right: 0,
                 left: 0,
@@ -37,7 +37,7 @@ class ProfileScreen extends StatelessWidget {
                   decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius:
-                      new BorderRadius.vertical(top: Radius.circular(20))),
+                          new BorderRadius.vertical(top: Radius.circular(20))),
                   height: 150,
                   child: Column(
                     children: [
@@ -47,18 +47,18 @@ class ProfileScreen extends StatelessWidget {
                       Text(
                         "Ibrahim Alegla",
                         style: TextStyle(
-                            fontSize: 25, fontWeight: FontWeight.bold,fontFamily: 'CAREEM'),
+                            fontSize: 25,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'CAREEM'),
                       ),
                       Text(
-
-                            "غزة,فلسطين",
-                        style: TextStyle(fontSize: 14,fontFamily: 'CAREEM'),
+                        "غزة,فلسطين",
+                        style: TextStyle(fontSize: 14, fontFamily: 'CAREEM'),
                       ),
                     ],
                   ),
                 ),
               ),
-
               Positioned(
                 right: 90,
                 top: 125,
@@ -72,7 +72,6 @@ class ProfileScreen extends StatelessWidget {
                       color: Color(ValueColor.CERULEAN),
                     )),
               ),
-
               Positioned(
                 right: 150,
                 left: 150,
@@ -93,7 +92,6 @@ class ProfileScreen extends StatelessWidget {
                   ),
                 ),
               ),
-
               Positioned(
                 right: 0,
                 left: 0,
@@ -111,31 +109,28 @@ class ProfileScreen extends StatelessWidget {
                       RowMore(
                         "رقم الهاتف",
                       ),
-
                       SizedBox(
                         height: 20,
                       ),
                       RowMore(
-                         "كلمة السر",
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      RowMore(
-
-                            "العنوان",
+                        "كلمة السر",
                       ),
                       SizedBox(
                         height: 20,
                       ),
                       RowMore(
-                         "مشاركة",
+                        "العنوان",
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      RowMore(
+                        "مشاركة",
                       ),
                     ],
                   ),
                 ),
               ),
-
               Positioned(
                 right: 0,
                 left: 0,
@@ -143,73 +138,9 @@ class ProfileScreen extends StatelessWidget {
                 child: Container(
                   color: Colors.white,
                   height: 60,
-                  child: TextButton(
-                    onPressed: () {
-                      //
-                      showDialog(context: context,
-                          builder: (context)=>SimpleDialog(
-                            title: const Text("تسجيل خروج",
-                              style: TextStyle(
-                                  fontSize: 17, color: Colors.blue,fontFamily: 'CAREEM'),
-
-                            ),
-
-                            contentPadding: const EdgeInsets.all(20),
-                            children: [
-                              const Text("هل انت متاكد ؟",
-                            style: TextStyle(
-                                fontSize: 15, color: Colors.black,fontFamily: 'CAREEM'),),
-                              SizedBox(height: 20,),
-                              Row(
-                                children: [
-                                  ButtonResta(text: "نعم",onPressed: (){
-                                    Navigator.of(context).pushReplacementNamed('/LoginScreen');
-                                    MySharedPreferences.instance
-                                        .setBooleanValue("login", false);
-                                  },color: Colors.red,color2: Colors.red),
-                                  Spacer(),
-                                  ButtonResta(text: "لا",onPressed: (){
-                                    Navigator.of(context).pop();
-                                  },color: Colors.blue,color2: Colors.blue),
-                                ],
-                              ),
-
-                            ],
-
-                          ));
-                    },
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "تسجيل خروج",
-                          style: TextStyle(
-                              fontSize: 20, color: Colors.blue,fontFamily: 'CAREEM'),
-                        ),
-
-                        SizedBox(
-                          width: 5,
-                        ),
-                        Icon(
-                          Icons.exit_to_app,
-                          color: Color(ValueColor.GOLD),
-                        ),
-                      ],
-                    ),
-                  ),
+                  child: ButtonBialog(),
                 ),
               ),
-
-              // Positioned(
-              //   right: 0,
-              //   left: 0,
-              //   bottom: 0,
-              //   child: Container(
-              //     color: Colors.white,
-              //     height: 210,
-              //
-              //     ),
-              //   ),
             ],
           ),
         ),

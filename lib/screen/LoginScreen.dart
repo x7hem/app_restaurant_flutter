@@ -36,14 +36,12 @@ class _LoginScreenState extends State<LoginScreen> {
   String? _phone;
   String? isPhone;
   String? isPassword;
-
   String? _password;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-
         child: Container(
           color: Color(ValueColor.ARANG),
           child: Column(
@@ -194,7 +192,6 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
     );
   }
-
   void _performOperation() {
     _checkData();
   }
@@ -262,5 +259,3 @@ class _LoginScreenState extends State<LoginScreen> {
     }
   }
 }
-
-
